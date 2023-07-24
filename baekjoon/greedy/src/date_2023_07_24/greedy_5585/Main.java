@@ -1,4 +1,4 @@
-package greedy_5585;
+package date_2023_07_24.greedy_5585;
 
 import java.io.BufferedReader;
 import java.io.IOException;

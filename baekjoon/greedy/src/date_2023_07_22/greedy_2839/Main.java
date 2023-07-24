@@ -1,4 +1,4 @@
-package greedy_2839;
+package date_2023_07_22.greedy_2839;
 
 import java.util.Scanner;
 
