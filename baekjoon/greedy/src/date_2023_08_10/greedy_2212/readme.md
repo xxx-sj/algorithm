@@ -26,3 +26,55 @@
 예제 입력2를 대상으로 새로 만든다면 아래와 같다.   
 ![image](https://github.com/xxx-sj/algorithm/assets/62305110/3b7bd870-6f50-4ebd-95eb-db28e85b4d4d)
 ![image](https://github.com/xxx-sj/algorithm/assets/62305110/35cdbce3-db95-41a0-921e-58196537a8e0)
+
+- 센서 수 N과 집중국 K를 입력받는다.
+```java
+ BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+int N = Integer.parseInt(br.readLine());
+int K = Integer.parseInt(br.readLine());
+```
+- N만큼 배열을 만들어 다음으로 입력받는 센서의 위치를 배열에 할당한다.
+```java
+int[] location = new int[N];
+StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+for(int i = 0; i < N; i++) {
+    location[i] = Integer.parseInt(st.nextToken());
+}
+```
+- 센서 배열을 오름차순으로 정렬한다.
+- 다음으로 각 센서간의 거리 차이 [diff] 저장할 배열을 만든다.
+  - diff 배열의 크기는 N -1 이다.
+    - N -1 인 이유는 각 센서간의 거리차이를 저장하기 때문에 N -1 이다.
+    - 예를들어 센서가 3개라면 3개 간의 거리 차이 값은 2개가 나오기 때문이다.
+- 현재 배열과 그 다음배열간의 값의 차이를 구하는 것이기 때문에
+- for loop의 범위는 0 ~ (N - 1 - 1) 까지 순회한다.
+  - -1을 2번 하는데, 첫 번째 -1의 의미는 배열의 길이[크기]는 1부터 시작하지만 배열의 인덱스는0부터 시작하기 때문이다.
+  - 다음 -1은 현재 배열과 다음 배열을 비교해서 차이를 diff배열에 저장해야 하는데, N -1 까지 한다면 
+  - 현재 배열 [N -1] 다음 배열 [N] 이므로 다음배열 [N] 에서 배열의 크기를 넘기면서 에러를 뱉기 때문이다.
+- 뺀 값을 저장한 배열도 오름차순으로 정렬한다.
+```java
+int[] diff = new int[N - 1];
+
+for(int i = 0; i < N - 1; i++) {
+    diff[i] = location[i + 1] - location[i];
+}
+Arrays.sort(diff);
+```
+- 마지막으로 diff[] 배열을 순회하는데 
+- 인덱스 0번 부터 diff.length - (K - 1) 보다 작을때까지 순회하며 결과에 누적하여 더한다.
+  - 여기서 diff.length - (K - 1)를 하나씩 살펴보면
+  - for (int i = 0; i < diff.length - (K -1); i++) 에서 
+  - diff.length 만 있다면, diff의 모든 인덱스를 순회한다는 의미이고
+  - diff.length - K 만 있었다면, 이 전에 말했던 마지막에 남은 1개의 집중국이
+  - 나머지 센서들을 맡는것이 아닌 큰 수들에 대해 모두 집중국을 담당하게 만들게 된다.
+  - 따라서 마지막 1개가 나머지 센서들을 담당할 수 있게 -1을 더 해주는 것이다.
+  - diff.length - K - 1 이 되는 것이다.
+```java
+int result = 0;
+for(int i = 0; i < diff.length - (K - 1); i++) {
+    result += diff[i];
+}
+
+System.out.println(result);
+```
