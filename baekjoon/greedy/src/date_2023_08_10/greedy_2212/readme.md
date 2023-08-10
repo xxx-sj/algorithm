@@ -24,4 +24,5 @@
 ![스크린샷 2023-08-10 오후 6 43 52](https://github.com/xxx-sj/algorithm/assets/62305110/ecd41d9c-e54a-41bc-bf43-f2271b35b1a5)
 
 예제 입력2를 대상으로 새로 만든다면 아래와 같다.   
-
+![image](https://github.com/xxx-sj/algorithm/assets/62305110/3b7bd870-6f50-4ebd-95eb-db28e85b4d4d)
+![image](https://github.com/xxx-sj/algorithm/assets/62305110/35cdbce3-db95-41a0-921e-58196537a8e0)
