@@ -1,7 +1,7 @@
 # 알고리즘
 * * * 
 PS 그리고 코딩테스트 준비를 위해 공부하는 중입니다.    
-알고리즘, 코딩테스트에 대해 1도 모르는 저는 [참고 블로그](https://plzrun.tistory.com/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4PS-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)를 참고하여    
+알고리즘, 코딩테스트에 대해 1도 모르는 저는 [블로그](https://plzrun.tistory.com/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4PS-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0)를 참고하여    
 공부를 해볼 생각입니다.
 * * *
 ### 2023-07-22 [토]
