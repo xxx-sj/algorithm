@@ -9,3 +9,4 @@
 첫째 줄부터 N번째 줄까지 차례대로 별을 출력한다.
 
 ## 문제해결
+![image](https://github.com/xxx-sj/algorithm/assets/62305110/766febfd-b7c9-4714-b397-a1dbd67130a4)
