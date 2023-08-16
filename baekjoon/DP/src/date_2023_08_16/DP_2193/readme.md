@@ -1,3 +1,8 @@
+## 선행
+[DP 10844](https://github.com/xxx-sj/algorithm/tree/master/baekjoon/DP/src/date_2023_08_15/DP_10844)  
+
+* * *
+
 ### 문제
 0과 1로만 이루어진 수를 이진수라 한다. 이러한 이진수 중 특별한 성질을 갖는 것들이 있는데, 이들을 이친수(pinary number)라 한다. 이친수는 다음의 성질을 만족한다.  
 이친수는 0으로 시작하지 않는다.  
