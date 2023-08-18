@@ -5,10 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
-
-    static int[][] stickers;
-    static Integer[][] dp;
+public class Main2 {
+    static int dp[][], stickers[][];
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
@@ -19,6 +17,8 @@ public class Main {
             int N = Integer.parseInt(br.readLine());
 
             stickers = new int[2][N + 1];
+            dp = new int[2][N + 1];
+
 
             for(int j = 0; j < 2; j++) {
                 st = new StringTokenizer(br.readLine(), " ");
@@ -27,29 +27,15 @@ public class Main {
                 }
             }
 
-            dp = new Integer[2][N + 1];
-
             dp[0][1] = stickers[0][1];
             dp[1][1] = stickers[1][1];
 
-            System.out.println(Math.max(recur(0, N), recur(1, N)));
-        }
-    }
-
-    private static int recur(int row, int col) {
-
-        if (col == 1) {
-            return stickers[row][col];
-        }
-
-        if (dp[row][col] == null) {
-            if (col == 2) {
-                dp[row][col] = recur(1 - row, col - 1) + stickers[row][col];
-            } else {
-                dp[row][col] = Math.max(recur(1 - row, col - 1), recur(1 - row, col - 2)) + stickers[row][col];
+            for(int j = 2; j <= N; j++) {
+                dp[0][j] = Math.max(dp[1][j - 1], dp[1][j - 2]) + stickers[0][j];
+                dp[1][j] = Math.max(dp[0][j - 1], dp[0][j - 2]) + stickers[1][j];
             }
-        }
 
-        return dp[row][col];
+            System.out.println(Math.max(dp[0][N], dp[1][N]));
+        }
     }
 }
