@@ -16,22 +16,8 @@ public class Main {
         dp[0] = 0;
         dp[1] = 1;
 
-        System.out.println(bottom_up(N));
+        System.out.println(bottom_up2(N));
     }
-
-//    private static int recur(int N) {
-//        if(N == 1) {
-//            return dp[N];
-//        }
-//
-//        if(dp[N] == null) {
-//            dp[N] = Integer.MAX_VALUE;
-//
-//            dp[N] = Math.min(dp[N], recur())
-//        }
-//
-//        return dp[N];
-//    }
 
     private static int bottom_up(int N) {
 
@@ -49,6 +35,18 @@ public class Main {
             }
 
             dp[i] = min;
+        }
+
+        return dp[N];
+    }
+
+    private static int bottom_up2(int N) {
+
+        for(int i = 2; i <= N; i++) {
+            dp[i] = i;
+            for(int j = 1; j * j<= i; j++) {
+                dp[i] = Math.min(dp[i], dp[i - j*j] + 1);
+            }
         }
 
         return dp[N];
