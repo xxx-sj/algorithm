@@ -32,10 +32,6 @@ public class Main {
 
     private static int recur(int N) {
 
-        if(N == 1) {
-            return dp[N];
-        }
-
         if(dp[N] == null) {
             dp[N] = Math.max(recur(N - 2), recur(N - 3) + stairs[N - 1]) + stairs[N];
         }
