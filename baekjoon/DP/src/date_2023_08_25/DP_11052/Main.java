@@ -26,16 +26,16 @@ public class Main {
         dp[0] = 0;
         dp[1] = cards[1];
 
-//        bottom_up(N);
-//        System.out.println(dp[N]);
+        bottom_up(N);
+        System.out.println(dp[N]);
 
-        System.out.println(top_down(N));
+//        System.out.println(top_down(N));
     }
 
     static void bottom_up(int N) {
         for(int i = 2; i <= N; i++) {
             dp[i] = cards[i];
-            for(int j = 0; j < i; j++) {
+            for(int j = 1; j < i; j++) {
                 dp[i] = Math.max(dp[i], dp[j] + cards[i - j]);
             }
         }
