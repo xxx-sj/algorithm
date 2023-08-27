@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class Main {
     static Long[][] dp;
 
-    static long mod = 1000000000;
+    static long mod = 1_000_000_000;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
