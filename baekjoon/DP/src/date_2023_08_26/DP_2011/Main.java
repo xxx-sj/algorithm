@@ -26,6 +26,7 @@ public class Main {
 
         for(int i = 2; i <= password.length(); i++) {
             if(password.charAt(i - 1) == '0') {
+                // [0] 일때 0의 앞 숫자가 1 or 2 인가?
                 int prev_number = Integer.parseInt(password.substring(i - 2, i - 1));
                 if(!(prev_number == 1 || prev_number == 2)) {
                     //int[] 의 기본값은 0 이기때문에 따로 값을 초기화하지 않는다.
@@ -34,6 +35,7 @@ public class Main {
                 } else {
                     dp[i] = dp[i - 2] % mod;
                 }
+                //현재 기준으로 [0]이 앞에 있을 때 [2,2,0,1] 에서 현재 1일 경우
             } else if (password.charAt(i - 2) == '0') {
                 dp[i] = dp[i - 1] % mod;
             } else {
