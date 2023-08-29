@@ -15,7 +15,11 @@ public class Main {
 
         dp[1][0] = dp[1][1] = 1L;
 
-        System.out.println(recur(N, 1));
+        bottom_up(N);
+
+
+        System.out.println(dp[N][1]);
+//        System.out.println(recur(N, 1));
     }
 
     static Long recur(int digit, int val) {
@@ -34,4 +38,19 @@ public class Main {
 
         return dp[digit][val];
     }
+
+    static void bottom_up(int N) {
+
+        for(int i = 2; i <= N; i++) {
+            for(int j = 0; j <= 1; j++) {
+
+                if (j == 0) {
+                    dp[i][j] = dp[i - 1][0] + dp[i - 1][1];
+                } else if (j == 1){
+                    dp[i][j] = dp[i - 1][0];
+                }
+            }
+        }
+    }
+
 }
