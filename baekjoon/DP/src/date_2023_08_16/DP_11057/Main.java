@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class Main {
 
     static Long dp[][];
-    static int mod = 10007;
+    static int mod = 10_007;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -28,7 +28,7 @@ public class Main {
             result += recur(N, i);
 
         }
-            System.out.println(result% mod);
+            System.out.println(result % mod);
 
     }
 
