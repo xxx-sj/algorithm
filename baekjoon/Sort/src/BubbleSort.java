@@ -4,7 +4,7 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] arr = new int[]{1,3,9,4,3,7,8,6};
 
-        bubbleSort(arr, arr.length);
+        bubbleSort2(arr, arr.length);
         System.out.println(Arrays.toString(arr));
 
     }
@@ -27,6 +27,17 @@ public class BubbleSort {
             }
         }
     }
+
+    static void bubbleSort2(int[] a, int N) {
+        for(int i = 0; i < N - 1; i ++) {
+            for(int j = 1; j < N - i; j++) {
+                if(a[j - 1] > a[j]) {
+                    swap(a, j - 1, j);
+                }
+            }
+        }
+    }
+
 
     /**
      * swap 은 배열과 두 인덱스를 받아서 값을 변경한다.
