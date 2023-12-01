@@ -103,4 +103,105 @@ public class ArrayList<E> implements List<E> {
             size++;
         }
     }
+
+
+    public void addFirst(E value) {
+        add(0, value);
+    }
+
+    @SuppressWarnings("unchecked")
+    public E get(int index) {
+        if (index >= size || index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        return (E) array[index];
+    }
+
+    public void set(int index, E value) {
+        if (index >= size || index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+        else {
+            array[index] = value;
+        }
+    }
+
+    public int indexOf(Object value) {
+        int i = 0;
+
+        for(i = 0; i < size; i++) {
+            if(array[i].equals(value)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public int lastIndexOf(Object value) {
+        for(int i = size - 1; i >= 0; i--) {
+            if(array[i].equals(value)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public boolean contains(Object value) {
+        if(indexOf(value) >= 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    @SuppressWarnings("unchecked")
+    public E remove(int index) {
+
+        if (index >= size || index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        E element = (E) array[index];
+        array[index] = null;
+
+        for(int i = index; i < size - 1; i++) {
+            array[i] = array[i + 1];
+            array[i + 1] = null;
+        }
+        size--;
+        resize();
+
+        return element;
+    }
+
+    public boolean remove(Object value) {
+        int index = indexOf(value);
+
+        if(index == -1) {
+            return false;
+        }
+
+        remove(index);
+        return true;
+    }
+
+    public int size () {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public void clear() {
+        for(int i = 0; i < size; i++) {
+            array[i] = null
+        }
+
+        size = 0;
+        resize();
+    }
 }
