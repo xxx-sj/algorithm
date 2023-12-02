@@ -1,4 +1,4 @@
-package list;
+package list.single_linkedList;
 
 public class Node<E> {
 

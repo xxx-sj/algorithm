@@ -1,4 +1,4 @@
-package list;
+package list.arrayList;
 
 import interface_form.List;
 
