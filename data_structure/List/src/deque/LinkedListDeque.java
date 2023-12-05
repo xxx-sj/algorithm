@@ -199,7 +199,7 @@ public class LinkedListDeque<E> implements Queue<E> {
     }
 
     public void clear() {
-        for(Node<E> x = head; x != null) {
+        for(Node<E> x = head; x != null;) {
             Node<E> next_node = x.next;
             x.data = null;
             x.prev = null;
