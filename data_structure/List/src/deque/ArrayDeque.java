@@ -2,7 +2,8 @@ package deque;
 
 import queue.Queue;
 
-public class ArrayDeque<E> implements Queue<E> {
+//public class ArrayDeque<E> implements Queue<E> {
+public class ArrayDeque<E> {
 
     private static final int DEFAULT_CAPACITY = 64; //기본 용적 크기
 
@@ -67,5 +68,5 @@ public class ArrayDeque<E> implements Queue<E> {
         return true;
     }
 
-
+    
 }

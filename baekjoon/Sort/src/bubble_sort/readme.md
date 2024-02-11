@@ -33,3 +33,77 @@ for(int i = 1; i < size; i++) {
     
 }
 ```
+
+* * *
+
+
+## 버블 정렬
+
+버블정렬은 기본적으로 앞 숫자와 그 다음 숫자를 비교해서 큰 숫자를 뒤로 보내는 방법이다.    
+[7, 2, 3, 9, 28, 1]라는 배열이 있다고 가정하자.
+
+위에서 말한 방법처럼 앞 숫자와 그 다음 숫자를 비교해서 큰 숫자를 뒤로 보내야 한다.   
+1. 그렇다면 윗 배열은 몇 번을 반복하게 되는가?    
+총 5번을 반복하게 될 것이다 [length - 1]    
+
+```java
+for(int i = 0; i < length - 1; i++) {}
+```
+이 될 것이다. 여기서 부등호가 [<] 인 이유는 index는 0부터 시작하기 때문에    
+2. 다음으로는 비교해서 값을 바꾸는 로직을 짜보면    
+
+```java
+for(int i = 0; i < length - 1; i++) {
+    if(a[i] > a[i + 1]) {
+        int temp = a[i];
+        a[i] = a[i + 1];
+        a[i + 1] = temp;
+    }
+}
+```
+해당 로직을 메서드로 빼보면   
+
+```java
+public void sortARount(int[] arr, int until) {
+    for(int i = 0; i < until; i++) {
+        if(a[i] > a[i + 1]) {
+            int temp = a[i];
+            a[i] = a[i + 1];
+            a[i + 1] = temp; 
+        }    
+    }
+}
+
+```
+이 메서드를 호출하는 부분은 다음과 같다.
+
+```java
+int [] arr = {7, 2, 3, 9, 28, 1};
+sortARound(arr, arr.lengh - 1);
+```
+[7, 2, 3, 9, 28, 1]   
+3. 이렇게 메서드를 한번 호출하면 배열을 처음 한번 순회하게 되는 것이고, 가장 큰 숫자인 28이 맨 뒤로 가게 된다.   
+이어서 순회를 통해 배열을 정렬하게 되는데, 이 때는 **arr.length - 1** 만큼이 아닌 **arr.length - 2** 만큼 순회한다.    
+그 이유는 마지막 숫자인 28은 정렬되었기 때문에 그 전 까지 순회하게 된다.   
+
+```java
+//arr.length = 6;
+int [] arr = {7, 2, 3, 9, 28, 1};
+sortARound(arr, arr.lengh - 1);
+sortARound(arr, arr.lengh - 2);
+sortARound(arr, arr.lengh - 3);
+sortARound(arr, arr.lengh - 4);
+sortARound(arr, arr.lengh - 5);
+```
+즉, [arr.length - 1] 만큼을 반복하게 된다. 이것을 for문으로 변경하면
+```java
+int [] arr = {7, 2, 3, 9, 28, 1};
+for(int i = 1; i <= arr.length - 1; i++) {
+    sortARound(arr, arr.length - i);
+}
+```
+i 가 1부터 시작한 이유는 위의 반복문 전을 보면 알 수 있듯이 [arr.length - 1] 인데, 여기서 [-1]부분을 해주기 위해    
+1부터 시작하게 되었다. 그리고 자동으로 [i <= arr.length - 1] 로 총 5번을 반복하게 되는 것이다.   
+
+
+
